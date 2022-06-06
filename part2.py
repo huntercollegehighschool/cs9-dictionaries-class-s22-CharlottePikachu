@@ -11,7 +11,18 @@ if a = 1, b = 50, c = 59, then output False. While 59 is a prime number, it is n
 '''
 
 def primes_dict(a, b):
-  pass
+  composite = {}
+  for i in range(a, b + 1):
+    div = 2
+    comp = False
+    while div ** 2 <= i:
+      if i % div == 0:
+        comp = True
+        break
+      div += 1
+    composite[i] = comp
+  return composite
 
 def primes(a, b, c):
   pr_dict = primes_dict(a, b)
+  return min(a,b) <= c and c <= max(a,b) and pr_dict[c] == True

@@ -9,7 +9,12 @@ if a = 6, b = 10, c = 101, 6*6 = 36 <= 101 </= 10*10 = 100, so output False
 '''
 
 def squares_dict(a, b):
-  pass
+  dict = {}
+  for i in range(a, b + 1):
+    dict[i] = i * i
+  return dict
 
 def squares(a, b, c):
   sq_dict = squares_dict(a, b)
+  #return true if c is in between a and b squared
+  return (min(sq_dict[a], sq_dict[b]) <= c and c <= max(sq_dict[b], sq_dict[a]))
